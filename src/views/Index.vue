@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="block">
       <el-carousel height="511px">
         <el-carousel-item v-for="item in 4" :key="item"> </el-carousel-item>
@@ -37,39 +37,39 @@
     <div class="content-muban">
       <p>样音示例</p>
       <div class="content-peiyin">
-          <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="推荐样音" name="first">
             <ul class="content-m1">
-              <li v-for="(item,index) of data1" :key="index">
-                <img :src="item.imgurl" alt="" />  
-                <p>{{item.title}}</p>
+              <li v-for="(item, index) of data1" :key="index">
+                <img :src="item.imgurl" alt="" />
+                <p>{{ item.title }}</p>
                 <div class="content-m2">
-                  <img src="../assets/images/xiaoyun.png" alt="">
-                  <p>{{item.anchorName}}</p>
-                  <p>{{item.musicName}}</p>
+                  <img src="../assets/images/xiaoyun.png" alt="" />
+                  <p>{{ item.anchorName }}</p>
+                  <p>{{ item.musicName }}</p>
                 </div>
                 <button class="btn-play" @click="playAudio">
-                    <audio :src="item.url" controls="controls"></audio>
-                     <img src="../assets/images/bofang2.png" alt="">
-                    <p>点击试听</p>
+                  <audio :src="item.url" controls="controls"></audio>
+                  <img src="../assets/images/bofang2.png" alt="" />
+                  <p>点击试听</p>
                 </button>
               </li>
             </ul>
           </el-tab-pane>
           <el-tab-pane label="广告推销" name="second">
             <ul class="content-m1">
-              <li v-for="(item,index) of data2" :key="index">
-                <img :src="item.imgurl" alt="" />  
-                <p>{{item.title}}</p>
+              <li v-for="(item, index) of data2" :key="index">
+                <img :src="item.imgurl" alt="" />
+                <p>{{ item.title }}</p>
                 <div class="content-m2">
-                  <img src="../assets/images/xiaoyun.png" alt="">
-                  <p>{{item.anchorName}}</p>
-                  <p>{{item.musicName}}</p>
+                  <img src="../assets/images/xiaoyun.png" alt="" />
+                  <p>{{ item.anchorName }}</p>
+                  <p>{{ item.musicName }}</p>
                 </div>
                 <button class="btn-play" @click="playAudio">
-                    <audio :src="item.url" controls="controls"></audio>
-                     <img src="../assets/images/bofang2.png" alt="">
-                    <p>点击试听</p>
+                  <audio :src="item.url" controls="controls"></audio>
+                  <img src="../assets/images/bofang2.png" alt="" />
+                  <p>点击试听</p>
                 </button>
               </li>
             </ul>
@@ -78,14 +78,42 @@
       </div>
     </div>
     <div class="content-muban2">
-      <p>样音示例</p>
-      
+      <p>在线合成样音模板</p>
+      <el-tabs v-model="activeP" @tab-click="handleClick">
+        <el-tab-pane label="全部配音" name="one">
+          <ul class="content-m3">
+            <li v-for="(item,index) of dataP1" :key="index">
+                <p class="content-m3-title">{{item.title}}</p>
+                <div class="content-m3-i">
+                  <img src="../assets/images/xiaoyun.png" alt="" />
+                  <p>{{item.anchorname}}</p>
+                  <p>{{item.bgname}}</p>
+                </div>
+                <div class="content-m2-btn">
+                  <div>
+                    <img src="../assets/images/bofang2.png" alt="" />
+                    <p>点击试听</p>
+                  </div>
+                  <div>
+                    <img src="../assets/images/zhizuo.png" alt="" />
+                    <p>点击制作</p>
+                  </div>
+                </div>
+            </li>
+          </ul>
+        </el-tab-pane>
+        <el-tab-pane label="广告促销" name="two">配置管理</el-tab-pane>
+        <el-tab-pane label="专题配音" name="three">角色管理</el-tab-pane>
+        <el-tab-pane label="彩铃配音" name="four">彩铃配音</el-tab-pane>
+        <el-tab-pane label="课件培训" name="five">彩铃配音</el-tab-pane>
+        <el-tab-pane label="英文配音" name="six">彩铃配音</el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
 
-<style >
-.el-tabs__item{
+<style>
+.el-tabs__item {
   font-size: 20px !important;
 }
 .el-carousel__item:nth-child(2n) {
@@ -100,30 +128,31 @@
 export default {
   data() {
     return {
-      activeName: 'first',
-      activeNameTwo:'one',
-      data1:[],
-      data2:[]
-      }
+      activeName: "first", //样音选项卡
+      activeP: "one", //配音选项卡
+      data1: [], //样音选项卡1数据
+      data2: [], //样音选项卡2数据,
+      dataP: [], //配音总数据,
+      dataP1: [], //分页保存数据
+    };
   },
   methods: {
     //全部样音数据
     getData() {
-      let t=new Date().getTime();
+      let t = new Date().getTime();
       this.axios({
         method: "post",
-        url: "/api/tts/api.php?c=1028&v=1.1&t="+this.t+"&a=peiyinapp",
-        data:
-          {
-            "cmd": "GetHomeSamples"
-          }
+        url: "/api/tts/api.php?c=1028&v=1.1&t=" + this.t + "&a=peiyinapp",
+        data: {
+          cmd: "GetHomeSamples",
+        },
       })
         .then((res) => {
-          let arr1=res.data.items.slice(0,8);
-          let arr2 =res.data.items.slice(25,33);
-          console.log(arr2)
-          this.data1=arr1;
-          this.data2=arr2;
+          let arr1 = res.data.items.slice(0, 8);
+          let arr2 = res.data.items.slice(25, 33);
+          // console.log(arr2)
+          this.data1 = arr1;
+          this.data2 = arr2;
         })
         .catch((err) => {
           console.log(err);
@@ -131,15 +160,38 @@ export default {
     },
     //卡片切换
     handleClick(tab, event) {
-        // console.log(tab, event);
-      },
-    playAudio(){
-      this.$refs.audio.play()
-    }
+      // console.log(tab, event);
+    },
+    playAudio() {
+      this.$refs.audio.play();
+    },
+    //配音分页数据
+    pagination(pageNo) {
+      this.axios({
+        method: "post",
+        url: "/api/tts/api.php?c=1025&v=1.1&t=1596186983620&a=peiyinapp",
+        data: {
+          cmd: "GetTextSamples",
+        },
+      })
+        .then((res) => {
+          let arr = res.data.items;
+          // 获取切片的起始位置
+          let origin = (pageNo - 1) * 8;
+          // 判断起始切片加要切的元素数量加在一起是否大于数组的长度,如果大于,说明没有更多历史记录了,返回空数组即可或者返回
+          let currentPage = arr.slice(origin, origin + 8);
+          this.dataP1 = currentPage;
+          console.log(this.dataP1);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 
   mounted() {
-      this.getData();
-    }
+    this.getData();
+    this.pagination(1);
+  },
 };
 </script>

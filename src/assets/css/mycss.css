@@ -78,7 +78,7 @@ img{border:0;padding:0px;margin:0px;outline-width:0px;}
   height:917px;
   border-top: 1px solid #EDEDED;
 }
-.content-muban>p{
+.content-muban>p,.content-muban2>p{
   font-size:26px;
   font-family:PingFang SC;
   font-weight:500;
@@ -185,4 +185,35 @@ content-peiyin p{
 }
 .content-penyin2{
   background-color: #FAFAFC;
+}
+.content-muban2{
+  background-color:#F8FAFC;
+  height: 574px;
+}
+.content-m3{
+  display: flex;
+  flex-wrap: wrap;
+}
+.content-m3 li{
+  width:301px;
+  height:171px;
+  background:rgba(255,255,255,1);
+  border-radius:20px;
+}
+
+.content-m3-title{
+  height:22px;
+  font-size:22px;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(60,60,60,1);
+  line-height:36px;
+}
+.content-m3-i>p{
+  height:17px;
+  font-size:18px;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(178,178,178,1);
+  line-height:107px;
 }

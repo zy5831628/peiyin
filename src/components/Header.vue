@@ -1,11 +1,11 @@
 <template>
     <el-row type="flex" justify="space-around">
-      <el-col :span="4" class="logo">
+      <el-col  :md="8" :lg="4" :xl="2" class="logo">
         <a href="">
           <img src="../assets/images/logo.png" alt="" />
         </a>
       </el-col>
-      <el-col :span="16" class="nav">
+      <el-col :md="8" :lg="12" :xl="18" class="nav">
         <el-menu
           :default-active="activeIndex"
           class="el-menu-demo"
@@ -34,7 +34,7 @@
           >
         </el-menu>
       </el-col>
-      <el-col :span="4" class="sign">
+      <el-col :md="8" :lg="4" :xl="2" class="sign">
         <el-row>
           <el-button type="primary">登录</el-button>
           <el-button type="primary">注册</el-button>
