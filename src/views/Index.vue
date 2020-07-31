@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     <div class="block">
       <el-carousel height="511px">
         <el-carousel-item v-for="item in 4" :key="item"> </el-carousel-item>
@@ -35,21 +35,20 @@
       </div>
     </div>
     <div class="content-muban">
-      <p>样音示例</p>
+      <p  class="content-muban-title">样音示例</p>
       <div class="content-peiyin">
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="推荐样音" name="first">
             <ul class="content-m1">
               <li v-for="(item, index) of data1" :key="index">
                 <img :src="item.imgurl" alt="" />
-                <p>{{ item.title }}</p>
+                <p class="content-m1-title">{{ item.title }}</p>
                 <div class="content-m2">
                   <img src="../assets/images/xiaoyun.png" alt="" />
-                  <p>{{ item.anchorName }}</p>
-                  <p>{{ item.musicName }}</p>
+                  <p class="content-m2-title">{{ item.anchorName }}</p>
+                  <p class="content-m2-title">{{ item.musicName }}</p>
                 </div>
-                <button class="btn-play" @click="playAudio">
-                  <audio :src="item.url" controls="controls"></audio>
+                <button class="btn-play">
                   <img src="../assets/images/bofang2.png" alt="" />
                   <p>点击试听</p>
                 </button>
@@ -60,14 +59,13 @@
             <ul class="content-m1">
               <li v-for="(item, index) of data2" :key="index">
                 <img :src="item.imgurl" alt="" />
-                <p>{{ item.title }}</p>
+                <p class="content-m1-title">{{ item.title }}</p>
                 <div class="content-m2">
                   <img src="../assets/images/xiaoyun.png" alt="" />
-                  <p>{{ item.anchorName }}</p>
-                  <p>{{ item.musicName }}</p>
+                  <p class="content-m2-title">{{ item.anchorName }}</p>
+                  <p class="content-m2-title">{{ item.musicName }}</p>
                 </div>
-                <button class="btn-play" @click="playAudio">
-                  <audio :src="item.url" controls="controls"></audio>
+                <button class="btn-play" >
                   <img src="../assets/images/bofang2.png" alt="" />
                   <p>点击试听</p>
                 </button>
@@ -78,26 +76,26 @@
       </div>
     </div>
     <div class="content-muban2">
-      <p>在线合成样音模板</p>
+      <p class="content-muban-title">在线合成样音模板</p>
       <el-tabs v-model="activeP" @tab-click="handleClick">
         <el-tab-pane label="全部配音" name="one">
-          <ul class="content-m3">
+          <ul class="content-y1">
             <li v-for="(item,index) of dataP1" :key="index">
-                <p class="content-m3-title">{{item.title}}</p>
-                <div class="content-m3-i">
+                <p class="content-y1-title">{{item.title}}</p>
+                <div class="content-y2">
                   <img src="../assets/images/xiaoyun.png" alt="" />
-                  <p>{{item.anchorname}}</p>
-                  <p>{{item.bgname}}</p>
+                  <p class="content-y2">{{item.anchorname}}</p>
+                  <p class="content-y2">{{item.bgname}}</p>
                 </div>
-                <div class="content-m2-btn">
-                  <div>
+                <div class="content-y3">
+                  <button class="btn2-play">
                     <img src="../assets/images/bofang2.png" alt="" />
                     <p>点击试听</p>
-                  </div>
-                  <div>
+                  </button>
+                  <button class="btn2-play">
                     <img src="../assets/images/zhizuo.png" alt="" />
                     <p>点击制作</p>
-                  </div>
+                  </button>
                 </div>
             </li>
           </ul>
@@ -114,7 +112,7 @@
 
 <style>
 .el-tabs__item {
-  font-size: 20px !important;
+  font-size: 1.25rem !important;
 }
 .el-carousel__item:nth-child(2n) {
   background: url(../assets/images/banner1.png) center 0 no-repeat;
@@ -162,9 +160,7 @@ export default {
     handleClick(tab, event) {
       // console.log(tab, event);
     },
-    playAudio() {
-      this.$refs.audio.play();
-    },
+
     //配音分页数据
     pagination(pageNo) {
       this.axios({

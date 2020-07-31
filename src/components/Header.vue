@@ -1,11 +1,11 @@
 <template>
     <el-row type="flex" justify="space-around">
-      <el-col  :md="8" :lg="4" :xl="2" class="logo">
+      <el-col  :md="8" :lg="3" :xl="2" class="logo">
         <a href="">
           <img src="../assets/images/logo.png" alt="" />
         </a>
       </el-col>
-      <el-col :md="8" :lg="12" :xl="18" class="nav">
+      <el-col :md="8" :lg="14" :xl="18" class="nav">
         <el-menu
           :default-active="activeIndex"
           class="el-menu-demo"
@@ -26,15 +26,12 @@
             <el-menu-item index="3-3">配音资讯3</el-menu-item>
           </el-submenu>
           <el-menu-item index="4">手机App</el-menu-item>
-          <el-menu-item index="5"
-            ><a href="javascript:;" target="_blank">联系我们</a></el-menu-item
-          >
-          <el-menu-item index="6"
-            ><a href="javascript:;" target="_blank">在线充值</a></el-menu-item
+          <el-menu-item index="5">联系我们</el-menu-item>
+          <el-menu-item index="6">在线充值</el-menu-item
           >
         </el-menu>
       </el-col>
-      <el-col :md="8" :lg="4" :xl="2" class="sign">
+      <el-col :md="8" :lg="3" :xl="2" class="sign">
         <el-row>
           <el-button type="primary">登录</el-button>
           <el-button type="primary">注册</el-button>
@@ -56,3 +53,8 @@ export default {
   },
 };
 </script>
+<style>
+  .el-menu-item,.el-submenu__title{
+    font-size: 1rem !important;
+  }
+</style>
