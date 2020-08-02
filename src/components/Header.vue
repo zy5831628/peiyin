@@ -1,11 +1,11 @@
 <template>
-    <el-row type="flex" justify="space-around">
-      <el-col  :md="8" :lg="3" :xl="2" class="logo">
+    <div class="head">
+      <div class="logo">
         <a href="">
           <img src="../assets/images/logo.png" alt="" />
         </a>
-      </el-col>
-      <el-col :md="8" :lg="14" :xl="18" class="nav">
+      </div>
+      <div  class="nav">
         <el-menu
           :default-active="activeIndex"
           class="el-menu-demo"
@@ -30,14 +30,14 @@
           <el-menu-item index="6">在线充值</el-menu-item
           >
         </el-menu>
-      </el-col>
-      <el-col :md="8" :lg="3" :xl="2" class="sign">
+      </div>
+      <div  class="sign">
         <el-row>
           <el-button type="primary">登录</el-button>
           <el-button type="primary">注册</el-button>
         </el-row>
-      </el-col>
-    </el-row>
+      </div>
+    </div>
 </template>
 <script>
 export default {
