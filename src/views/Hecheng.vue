@@ -4,8 +4,8 @@
       <p>在线合成样音模版</p>
       <p>更多模板>></p>
     </div>
-    <div class="hecheng-content">
-        <ul>
+   <!-- <div class="hecheng-content">
+         <ul>
           <li>
               <img src="../assets/images/zhubo.png" alt="">
               <div class="imgtag">更换主播</div>
@@ -104,7 +104,7 @@
           </li>
           <div style="clear: both"></div>
       </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 <style scoped>
