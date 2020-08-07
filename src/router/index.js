@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Index from "../views/Index.vue";
+import  Peiyin from "../views/Peiyin.vue"
+import  Hecheng from "../views/Hecheng.vue"
+import Zhubo from "../views/Zhubo.vue"
 
 Vue.use(VueRouter);
 
@@ -9,6 +12,21 @@ const routes = [
     path: "/",
     name: "Index",
     component: Index
+  },
+  {
+    path: "/peiyin",
+    name: "Peiyin",
+    component: Peiyin
+  },
+  {
+    path: "/hecheng",
+    name: "Hecheng",
+    component: Hecheng
+  },
+  {
+    path: "/zhubo",
+    name: "Zhubo",
+    component: Zhubo
   },
   {
     path: "/about",
